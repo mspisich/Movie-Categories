@@ -26,8 +26,8 @@ namespace Lab10
             Movie independenceDay = new Movie("Independence Day", "scifi");
             movies.Add(independenceDay);
 
-            Movie dramaFilm = new Movie("Some Drama Film", "drama");
-            movies.Add(dramaFilm);
+            Movie titanic = new Movie("Titanic", "drama");
+            movies.Add(titanic);
 
             Movie starWars = new Movie("Star Wars", "scifi");
             movies.Add(starWars);
@@ -43,7 +43,14 @@ namespace Lab10
             bool run = true;
             while (run)
             {
-                Console.WriteLine("What category are you interested in? (animated, drama, horror, scifi):");
+                Console.WriteLine("Categories");
+                Console.WriteLine("==========");
+                Console.WriteLine("0: Animated");
+                Console.WriteLine("1: Drama");
+                Console.WriteLine("2: Horror");
+                Console.WriteLine("3: Sci-Fi");
+
+                Console.WriteLine("What category are you interested in?");
 
                 string userCategory = GetInput();
 
@@ -63,45 +70,56 @@ namespace Lab10
 
         public static string GetInput()
         {
-            string input;
+            int input = -1;
+            string category = "";
             bool isValidInput = false;
             do
-            {
-                input = Console.ReadLine().ToLower();
-                switch (input)
+            { 
+                try
                 {
-                    case "animated":
-                        isValidInput = true;
-                        break;
-
-                    case "drama":
-                        isValidInput = true;
-                        break;
-
-                    case "horror":
-                        isValidInput = true;
-                        break;
-
-                    case "scifi":
-                        isValidInput = true;
-                        break;
-
-                    default:
-                        try
-                        {
-                            throw new IndexOutOfRangeException();
-                        }
-                        catch (Exception e)
-                        {
-                            isValidInput = false;
-                            Console.WriteLine("Category must be animated, drama, horror, or scifi! Try again:");
-                        }
-                        break;
+                    input = int.Parse(Console.ReadLine()); 
+                    if(input < 0 || input > 3)
+                    {
+                        throw new IndexOutOfRangeException();
+                    }
+                    isValidInput = true;
                 }
-
+                catch (System.FormatException)
+                {
+                    isValidInput = false;
+                    Console.WriteLine("Input must be 0-3. Try again:");
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    isValidInput = false;
+                    Console.WriteLine("Input must be 0-3. Try again:");
+                }      
             } while (isValidInput == false);
 
-            return input;
+            switch (input)
+            {
+                case 0:
+                    category = "animated";
+                    break;
+
+                case 1:
+                    category = "drama";
+                    break;
+
+                case 2:
+                    category = "horror";
+                    break;
+
+                case 3:
+                    category = "scifi";
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid category");
+                    break;
+            }
+
+            return category;
         }
 
         //Continue program?
