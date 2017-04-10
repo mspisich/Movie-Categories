@@ -14,28 +14,28 @@ namespace Lab10
 
             List<Movie> movies = new List<Movie>();
 
-            Movie heavyMetal = new Movie("Heavy Metal", "animated");
+            Movie heavyMetal = new Movie("Heavy Metal", "Animated");
             movies.Add(heavyMetal);
 
-            Movie theRing = new Movie("The Ring", "horror");
+            Movie theRing = new Movie("The Ring", "Horror");
             movies.Add(theRing);
 
-            Movie artificialIntelligence = new Movie("Artificial Intelligence", "scifi");
+            Movie artificialIntelligence = new Movie("Artificial Intelligence", "Sci-Fi");
             movies.Add(artificialIntelligence);
 
-            Movie independenceDay = new Movie("Independence Day", "scifi");
+            Movie independenceDay = new Movie("Independence Day", "Sci-Fi");
             movies.Add(independenceDay);
 
-            Movie titanic = new Movie("Titanic", "drama");
+            Movie titanic = new Movie("Titanic", "Drama");
             movies.Add(titanic);
 
-            Movie starWars = new Movie("Star Wars", "scifi");
+            Movie starWars = new Movie("Star Wars", "Sci-Fi");
             movies.Add(starWars);
 
-            Movie cabinInTheWoods = new Movie("Cabin in the Woods", "horror");
+            Movie cabinInTheWoods = new Movie("Cabin in the Woods", "Horror");
             movies.Add(cabinInTheWoods);
 
-            Movie kuboAndTheTwoStrings = new Movie("Kubo and the Two Strings", "animated");
+            Movie kuboAndTheTwoStrings = new Movie("Kubo and the Two Strings", "Animated");
             movies.Add(kuboAndTheTwoStrings);
 
             Console.WriteLine("\nThere are " + movies.Count + " movies in this list.");
@@ -53,6 +53,9 @@ namespace Lab10
                 Console.WriteLine("What category are you interested in?");
 
                 string userCategory = GetInput();
+
+                Console.WriteLine("\nCategory: " + userCategory);
+                Console.WriteLine("==========================");
 
                 foreach (Movie movie in movies)
                 {
@@ -99,19 +102,19 @@ namespace Lab10
             switch (input)
             {
                 case 0:
-                    category = "animated";
+                    category = "Animated";
                     break;
 
                 case 1:
-                    category = "drama";
+                    category = "Drama";
                     break;
 
                 case 2:
-                    category = "horror";
+                    category = "Horror";
                     break;
 
                 case 3:
-                    category = "scifi";
+                    category = "Sci-Fi";
                     break;
 
                 default:
