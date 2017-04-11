@@ -12,31 +12,17 @@ namespace Lab10
         {
             Console.WriteLine("Welcome to the Movie List Application!");
 
-            List<Movie> movies = new List<Movie>();
-
-            Movie heavyMetal = new Movie("Heavy Metal", "Animated");
-            movies.Add(heavyMetal);
-
-            Movie theRing = new Movie("The Ring", "Horror");
-            movies.Add(theRing);
-
-            Movie artificialIntelligence = new Movie("Artificial Intelligence", "Sci-Fi");
-            movies.Add(artificialIntelligence);
-
-            Movie independenceDay = new Movie("Independence Day", "Sci-Fi");
-            movies.Add(independenceDay);
-
-            Movie titanic = new Movie("Titanic", "Drama");
-            movies.Add(titanic);
-
-            Movie starWars = new Movie("Star Wars", "Sci-Fi");
-            movies.Add(starWars);
-
-            Movie cabinInTheWoods = new Movie("Cabin in the Woods", "Horror");
-            movies.Add(cabinInTheWoods);
-
-            Movie kuboAndTheTwoStrings = new Movie("Kubo and the Two Strings", "Animated");
-            movies.Add(kuboAndTheTwoStrings);
+            List<Movie> movies = new List<Movie>()
+            {
+                new Movie("Heavy Metal", "Animated"),
+                new Movie("The Ring", "Horror"),
+                new Movie("Artificial Intelligence", "Sci-Fi"),
+                new Movie("Independence Day", "Sci-Fi"),
+                new Movie("Titanic", "Drama"),
+                new Movie("Star Wars", "Sci-Fi"),
+                new Movie("Cabin in the Woods", "Horror"),
+                new Movie("Kubo and the Two Strings", "Animated")
+            };
 
             Console.WriteLine("\nThere are " + movies.Count + " movies in this list.");
 
@@ -45,10 +31,10 @@ namespace Lab10
             {
                 Console.WriteLine("Categories");
                 Console.WriteLine("==========");
-                Console.WriteLine("0: Animated");
-                Console.WriteLine("1: Drama");
-                Console.WriteLine("2: Horror");
-                Console.WriteLine("3: Sci-Fi");
+                Console.WriteLine("1: Animated");
+                Console.WriteLine("2: Drama");
+                Console.WriteLine("3: Horror");
+                Console.WriteLine("4: Sci-Fi");
 
                 Console.WriteLine("What category are you interested in?");
 
@@ -81,7 +67,7 @@ namespace Lab10
                 try
                 {
                     input = int.Parse(Console.ReadLine()); 
-                    if(input < 0 || input > 3)
+                    if(input < 1 || input > 4)
                     {
                         throw new IndexOutOfRangeException();
                     }
@@ -90,30 +76,30 @@ namespace Lab10
                 catch (System.FormatException)
                 {
                     isValidInput = false;
-                    Console.WriteLine("Input must be 0-3. Try again:");
+                    Console.WriteLine("Input must be 1-4. Try again:");
                 }
                 catch (IndexOutOfRangeException)
                 {
                     isValidInput = false;
-                    Console.WriteLine("Input must be 0-3. Try again:");
+                    Console.WriteLine("Input must be 1-4. Try again:");
                 }      
             } while (isValidInput == false);
 
             switch (input)
             {
-                case 0:
+                case 1:
                     category = "Animated";
                     break;
 
-                case 1:
+                case 2:
                     category = "Drama";
                     break;
 
-                case 2:
+                case 3:
                     category = "Horror";
                     break;
 
-                case 3:
+                case 4:
                     category = "Sci-Fi";
                     break;
 
